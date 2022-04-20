@@ -124,13 +124,13 @@ collect_info() {
 }
 
 build_baas () {
-    pushd ${SCRIPTDIR}/../0-bootstrap/single-cluster/2-services/argocd/instances
+    pushd ${SCRIPTDIR}/../0-bootstrap/cluster3/2-services/argocd/instances
     #curl -kLo ibm-spectrum-protect-plus-prod-${BAAS_HELM_VERSION}.tgz https://raw.githubusercontent.com/IBM/charts/master/repo/ibm-helm/ibm-spectrum-protect-plus-prod-${BAAS_HELM_VERSION}.tgz
     #tar -xzf ibm-spectrum-protect-plus-prod-${BAAS_HELM_VERSION}.tgz   
     #rm ibm-spectrum-protect-plus-prod-${BAAS_HELM_VERSION}.tgz
     #rm -rf ibm-spectrum-protect-plus-prod
     #cp ibm-spectrum-protect-plus-prod/ibm_cloud_pak/pak_extensions/crds/baas.io_baasreqs_crd.yaml .
-    echo "Working on 0-bootstrap/single-cluster/2-services/argocd/instances/baas-instance.yaml"
+    echo "Working on 0-bootstrap/cluster3/2-services/argocd/instances/baas-instance.yaml"
     cat baas-instance.yaml | sed -n '/^          baassecret:/q;p' | sed '/^$/d' > baas.00
 
     cat - > baas.01 << EOF

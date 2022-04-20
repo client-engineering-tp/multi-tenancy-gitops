@@ -59,7 +59,7 @@ set -e
 
 echo "Applying Infrastructure updates"
 
-pushd ${SCRIPTDIR}/../0-bootstrap/single-cluster/1-infra
+pushd ${SCRIPTDIR}/../0-bootstrap/cluster3/1-infra
 
 ocpversion=$(oc get clusterversion version | grep -v NAME | awk '{print $2}')
 a=( ${ocpversion//./ } )

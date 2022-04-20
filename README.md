@@ -115,9 +115,9 @@ The reference architecture for this GitOps workflow can be found [here](https://
 - The bootstrap YAML follows the [app of apps pattern](https://argoproj.github.io/argo-cd/operator-manual/cluster-bootstrapping/#app-of-apps-pattern).
 
 ### Tasks:
-1. Select a profile and delete the others from the `0-bootstrap` directory.  If this is your first usage of the gitops workflow, use the `single-cluster` profile and deploy the ArgoCD Bootstrap Application.
+1. Select a profile and delete the others from the `0-bootstrap` directory.  If this is your first usage of the gitops workflow, use the `cluster3` profile and deploy the ArgoCD Bootstrap Application.
     ```bash
-    GITOPS_PROFILE="0-bootstrap/single-cluster"
+    GITOPS_PROFILE="0-bootstrap/cluster3"
     oc apply -f ${GITOPS_PROFILE}/bootstrap.yaml
     ```
 2. Retrieve the ArgoCD/GitOps URL and admin password:
@@ -128,7 +128,7 @@ The reference architecture for this GitOps workflow can be found [here](https://
 
 
 ## Select resources to deploy
-- Clone the `multi-tenancy-gitops` repository in your Git Organization if you have not already done so and select the K8s resources to deploy in the [infrastructure](0-bootstrap/single-cluster/1-infra/kustomization.yaml) and [services](0-bootstrap/single-cluster/2-services/kustomization.yaml) layers.
+- Clone the `multi-tenancy-gitops` repository in your Git Organization if you have not already done so and select the K8s resources to deploy in the [infrastructure](0-bootstrap/cluster3/1-infra/kustomization.yaml) and [services](0-bootstrap/cluster3/2-services/kustomization.yaml) layers.
 - Existing recipes are available and additional ones will be made available in the **doc** directory.
     - [Cloud Native Toolkit](doc/cloud-native-toolkit-recipe.md)
     - [App Connect Enterprise recipe](doc/ace-recipe.md)
@@ -146,12 +146,12 @@ The reference architecture for this GitOps workflow can be found [here](https://
     - [Sterling File Gateway](doc/sfg-recipe.md)
 
 ### Tasks:
-1. Select a profile and delete the others from the `0-bootstrap` directory.  If this is your first usage of the gitops workflow, Use the `single-cluster` profile.
+1. Select a profile and delete the others from the `0-bootstrap` directory.  If this is your first usage of the gitops workflow, Use the `cluster3` profile.
     ```bash
-    GITOPS_PROFILE="0-bootstrap/single-cluster"
+    GITOPS_PROFILE="0-bootstrap/cluster3"
     ```
-2. Review the `Infrastructure` layer [kustomization.yaml](0-bootstrap/single-cluster/1-infra/kustomization.yaml) and un-comment the resources to deploy.
-3. Review the `Services` layer [kustomization.yaml](0-bootstrap/single-cluster/2-services/kustomization.yaml) and un-comment the resources to deploy.
+2. Review the `Infrastructure` layer [kustomization.yaml](0-bootstrap/cluster3/1-infra/kustomization.yaml) and un-comment the resources to deploy.
+3. Review the `Services` layer [kustomization.yaml](0-bootstrap/cluster3/2-services/kustomization.yaml) and un-comment the resources to deploy.
 4. Commit and push changes to your git repository
     ```bash
     git add .

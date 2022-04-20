@@ -54,7 +54,7 @@ ACE_SCENARIO=${ACE_SCENARIO:-false}
 ACE_BOM_PATH=${ACE_BOM_PATH:-scripts/bom/ace}
 CP_DEFAULT_TARGET_NAMESPACE=${CP_DEFAULT_TARGET_NAMESPACE:-tools}
 
-GITOPS_PROFILE=${GITOPS_PROFILE:-0-bootstrap/single-cluster}
+GITOPS_PROFILE=${GITOPS_PROFILE:-0-bootstrap/cluster3}
 
 GIT_BRANCH=${GIT_BRANCH:-master}
 GIT_PROTOCOL=${GIT_PROTOCOL:-https}
@@ -302,7 +302,7 @@ set_git_source () {
   echo setting git source instead of git override
   pushd ${OUTPUT_DIR}/gitops-0-bootstrap
 
-  if [[ "${GITOPS_PROFILE}" == "0-bootstrap/single-cluster" ]]; then
+  if [[ "${GITOPS_PROFILE}" == "0-bootstrap/cluster3" ]]; then
     rm -r 0-bootstrap/others
   fi
 

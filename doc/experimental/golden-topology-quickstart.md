@@ -34,10 +34,10 @@
     gh repo fork cloud-native-toolkit/multi-tenancy-gitops --clone --org ${GIT_ORG} --remote
     mv multi-tenancy-gitops gitops-0-bootstrap
     ```
-- Modify the `kustomization.yaml` to add or remove features, the infrastructure capabilities are in `0-bootstrap/single-cluster/1-infra/kustomization.yaml` and you must enable the lines below:
+- Modify the `kustomization.yaml` to add or remove features, the infrastructure capabilities are in `0-bootstrap/cluster3/1-infra/kustomization.yaml` and you must enable the lines below:
 
     ```bash
-    vi 0-bootstrap/single-cluster/1-infra/kustomization.yaml
+    vi 0-bootstrap/cluster3/1-infra/kustomization.yaml
     ```
 
     ```yaml
@@ -62,7 +62,7 @@
 - Commit your changes to the `kustomization.yaml`
 
     ```bash
-    git add 0-bootstrap/single-cluster/1-infra/kustomization.yaml
+    git add 0-bootstrap/cluster3/1-infra/kustomization.yaml
     git commit -m "Enable infrastructure components"
     git push origin
     ```
@@ -92,30 +92,30 @@
     Every 5.0s: oc get nodes,machines -n openshift-machine-api                                             mbp.local: Fri Sep  3 11:11:36 2021
 
     NAME                                             STATUS   ROLES            AGE   VERSION
-    node/z2g-cluster2-p45dl-infra-eastus21-z5znc     Ready    infra,worker     60m   v1.20.0+4593a24
-    node/z2g-cluster2-p45dl-infra-eastus22-8jwl8     Ready    infra,worker     62m   v1.20.0+4593a24
-    node/z2g-cluster2-p45dl-infra-eastus23-jzldd     Ready    infra,worker     62m   v1.20.0+4593a24
-    node/z2g-cluster2-p45dl-master-0                 Ready    master           45h   v1.20.0+4593a24
-    node/z2g-cluster2-p45dl-master-1                 Ready    master           45h   v1.20.0+4593a24
-    node/z2g-cluster2-p45dl-master-2                 Ready    master           45h   v1.20.0+4593a24
-    node/z2g-cluster2-p45dl-storage-eastus21-c47hz   Ready    storage,worker   60m   v1.20.0+4593a24
-    node/z2g-cluster2-p45dl-storage-eastus22-kn4z4   Ready    storage,worker   62m   v1.20.0+4593a24
-    node/z2g-cluster2-p45dl-storage-eastus23-zgqbl   Ready    storage,worker   62m   v1.20.0+4593a24
-    node/z2g-cluster2-p45dl-worker-eastus21-zb28l    Ready    worker           45h   v1.20.0+4593a24
-    node/z2g-cluster2-p45dl-worker-eastus22-hfbzx    Ready    worker           45h   v1.20.0+4593a24
-    node/z2g-cluster2-p45dl-worker-eastus23-tkd6k    Ready    worker           45h   v1.20.0+4593a24
+    node/z2g-cluster3-p45dl-infra-eastus21-z5znc     Ready    infra,worker     60m   v1.20.0+4593a24
+    node/z2g-cluster3-p45dl-infra-eastus22-8jwl8     Ready    infra,worker     62m   v1.20.0+4593a24
+    node/z2g-cluster3-p45dl-infra-eastus23-jzldd     Ready    infra,worker     62m   v1.20.0+4593a24
+    node/z2g-cluster3-p45dl-master-0                 Ready    master           45h   v1.20.0+4593a24
+    node/z2g-cluster3-p45dl-master-1                 Ready    master           45h   v1.20.0+4593a24
+    node/z2g-cluster3-p45dl-master-2                 Ready    master           45h   v1.20.0+4593a24
+    node/z2g-cluster3-p45dl-storage-eastus21-c47hz   Ready    storage,worker   60m   v1.20.0+4593a24
+    node/z2g-cluster3-p45dl-storage-eastus22-kn4z4   Ready    storage,worker   62m   v1.20.0+4593a24
+    node/z2g-cluster3-p45dl-storage-eastus23-zgqbl   Ready    storage,worker   62m   v1.20.0+4593a24
+    node/z2g-cluster3-p45dl-worker-eastus21-zb28l    Ready    worker           45h   v1.20.0+4593a24
+    node/z2g-cluster3-p45dl-worker-eastus22-hfbzx    Ready    worker           45h   v1.20.0+4593a24
+    node/z2g-cluster3-p45dl-worker-eastus23-tkd6k    Ready    worker           45h   v1.20.0+4593a24
 
     NAME                                                                     PHASE     TYPE               REGION    ZONE   AGE
-    machine.machine.openshift.io/z2g-cluster2-p45dl-infra-eastus21-z5znc     Running   Standard_D4s_v3    eastus2   1      65m
-    machine.machine.openshift.io/z2g-cluster2-p45dl-infra-eastus22-8jwl8     Running   Standard_D4s_v3    eastus2   2      65m
-    machine.machine.openshift.io/z2g-cluster2-p45dl-infra-eastus23-jzldd     Running   Standard_D4s_v3    eastus2   3      65m
-    machine.machine.openshift.io/z2g-cluster2-p45dl-master-0                 Running   Standard_D8s_v3    eastus2   1      45h
-    machine.machine.openshift.io/z2g-cluster2-p45dl-master-1                 Running   Standard_D8s_v3    eastus2   2      45h
-    machine.machine.openshift.io/z2g-cluster2-p45dl-master-2                 Running   Standard_D8s_v3    eastus2   3      45h
-    machine.machine.openshift.io/z2g-cluster2-p45dl-storage-eastus21-c47hz   Running   Standard_D16s_v3   eastus2   1      65m
-    machine.machine.openshift.io/z2g-cluster2-p45dl-storage-eastus22-kn4z4   Running   Standard_D16s_v3   eastus2   2      65m
-    machine.machine.openshift.io/z2g-cluster2-p45dl-storage-eastus23-zgqbl   Running   Standard_D16s_v3   eastus2   3      65m
-    machine.machine.openshift.io/z2g-cluster2-p45dl-worker-eastus21-zb28l    Running   Standard_D8s_v3    eastus2   1      45h
-    machine.machine.openshift.io/z2g-cluster2-p45dl-worker-eastus22-hfbzx    Running   Standard_D8s_v3    eastus2   2      45h
-    machine.machine.openshift.io/z2g-cluster2-p45dl-worker-eastus23-tkd6k    Running   Standard_D8s_v3    eastus2   3      45h
+    machine.machine.openshift.io/z2g-cluster3-p45dl-infra-eastus21-z5znc     Running   Standard_D4s_v3    eastus2   1      65m
+    machine.machine.openshift.io/z2g-cluster3-p45dl-infra-eastus22-8jwl8     Running   Standard_D4s_v3    eastus2   2      65m
+    machine.machine.openshift.io/z2g-cluster3-p45dl-infra-eastus23-jzldd     Running   Standard_D4s_v3    eastus2   3      65m
+    machine.machine.openshift.io/z2g-cluster3-p45dl-master-0                 Running   Standard_D8s_v3    eastus2   1      45h
+    machine.machine.openshift.io/z2g-cluster3-p45dl-master-1                 Running   Standard_D8s_v3    eastus2   2      45h
+    machine.machine.openshift.io/z2g-cluster3-p45dl-master-2                 Running   Standard_D8s_v3    eastus2   3      45h
+    machine.machine.openshift.io/z2g-cluster3-p45dl-storage-eastus21-c47hz   Running   Standard_D16s_v3   eastus2   1      65m
+    machine.machine.openshift.io/z2g-cluster3-p45dl-storage-eastus22-kn4z4   Running   Standard_D16s_v3   eastus2   2      65m
+    machine.machine.openshift.io/z2g-cluster3-p45dl-storage-eastus23-zgqbl   Running   Standard_D16s_v3   eastus2   3      65m
+    machine.machine.openshift.io/z2g-cluster3-p45dl-worker-eastus21-zb28l    Running   Standard_D8s_v3    eastus2   1      45h
+    machine.machine.openshift.io/z2g-cluster3-p45dl-worker-eastus22-hfbzx    Running   Standard_D8s_v3    eastus2   2      45h
+    machine.machine.openshift.io/z2g-cluster3-p45dl-worker-eastus23-tkd6k    Running   Standard_D8s_v3    eastus2   3      45h
     ```

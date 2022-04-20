@@ -5,7 +5,7 @@
 1. Edit the Infrastructure layer `${GITOPS_PROFILE}/1-infra/kustomization.yaml`, un-comment the following lines, commit and push the changes and synchronize the `infra` Application in the ArgoCD console.
 
 ```bash        
-cd multi-tenancy-gitops/0-bootstrap/single-cluster/1-infra
+cd multi-tenancy-gitops/0-bootstrap/cluster3/1-infra
 ```
 
 ```yaml

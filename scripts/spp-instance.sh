@@ -111,9 +111,9 @@ collect_info() {
 }
 
 build_spp_instance() {
-    pushd ${SCRIPTDIR}/../0-bootstrap/single-cluster/2-services/argocd/instances
+    pushd ${SCRIPTDIR}/../0-bootstrap/cluster3/2-services/argocd/instances
     # Editing spp-instance.yaml
-    echo "Working on 0-bootstrap/single-cluster/2-services/argocd/instances/spp-instance.yaml"
+    echo "Working on 0-bootstrap/cluster3/2-services/argocd/instances/spp-instance.yaml"
     oc get packagemanifest -n openshift-marketplace spp-operator -o yaml | \
       yq '.status.channels[0].currentCSVDesc.annotations."alm-examples"' -r | \
       jq .[] | yq -y | \
