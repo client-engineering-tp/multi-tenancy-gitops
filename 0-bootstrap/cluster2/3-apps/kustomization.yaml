@@ -1,5 +1,5 @@
 resources:
-- argocd/tp-sample-app/cicd.yaml
+#- argocd/tp-sample-app/cicd.yaml
 - argocd/tp-sample-app/dev.yaml
 #- argocd/ace/stage.yaml
 #- argocd/ace/prod.yaml
