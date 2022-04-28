@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: apps-apic-cluster1-pipelines
+  name: apps-apic-single-cluster-config
   annotations:
     argocd.argoproj.io/sync-wave: "300"
   labels:
@@ -14,7 +14,7 @@ spec:
     server: https://kubernetes.default.svc
   project: applications
   source:
-    path: apic/config/argocd/cluster1/pipelines
+    path: apic/config/argocd/single-cluster/config
   syncPolicy:
     automated:
       prune: true
